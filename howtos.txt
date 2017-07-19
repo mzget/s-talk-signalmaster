@@ -1,0 +1,12 @@
+- docker build -t mzget/stalk-signalmaster .
+
+- docker exec -it stalk-signalmaster /bin/bash
+
+// With volume
+- docker run -v /src/stalk/certs:/usr/src/app/config/sslcerts --name stalk-signalmaster -p 8888:8888 -d mzget/stalk-signalmaster
+
+// push to docker hub 
+- docker push mzget/stalk-signalmaster
+
+// pull from docker hub 
+- docker pull mzget/stalk-signalmaster
