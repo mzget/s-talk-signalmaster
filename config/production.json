@@ -5,7 +5,8 @@
     "/* secure */": "/* whether this connects via https */",
     "secure": true,
     "key": "config/sslcerts/server-key.pem",
-    "cert": "config/sslcerts/fullchain1.pem",
+    "cert": "config/sslcerts/server-cert.pem",
+    "ca": "config/sslcerts/chain1.pem",
     "password": null
   },
   "rooms": {
@@ -19,7 +20,9 @@
   ],
   "turnservers": [
     {
-      "urls": ["turn:your.turn.servers.here"],
+      "urls": [
+        "turn:your.turn.servers.here"
+      ],
       "secret": "turnserversharedsecret",
       "expiry": 86400
     }
