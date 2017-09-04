@@ -74,7 +74,7 @@ module.exports = function (server, config) {
 
         client.on('create', function (name, cb) {
             if (arguments.length == 2) {
-                cb = (typeof cb == 'function') ? cb : function () {};
+                cb = (typeof cb == 'function') ? cb : function () { };
                 name = name || uuid();
             } else {
                 cb = name;
@@ -94,7 +94,7 @@ module.exports = function (server, config) {
         // useful for large-scale error monitoring
         client.on('trace', function (data) {
             console.log('trace', JSON.stringify(
-            [data.type, data.session, data.prefix, data.peer, data.time, data.value]
+                [data.type, data.session, data.prefix, data.peer, data.time, data.value]
             ));
         });
 
@@ -109,13 +109,13 @@ module.exports = function (server, config) {
         var origin = client.handshake.headers.origin;
         if (!config.turnorigins || config.turnorigins.indexOf(origin) !== -1) {
             config.turnservers.forEach(function (server) {
-                var hmac = crypto.createHmac('sha1', server.secret);
+                // var hmac = crypto.createHmac('sha1', server.secret);
                 // default to 86400 seconds timeout unless specified
-                var username = Math.floor(new Date().getTime() / 1000) + (parseInt(server.expiry || 86400, 10)) + "";
-                hmac.update(username);
+                // var username = Math.floor(new Date().getTime() / 1000) + (parseInt(server.expiry || 86400, 10)) + "";
+                // hmac.update(username);
                 credentials.push({
-                    username: username,
-                    credential: hmac.digest('base64'),
+                    username: server.username,
+                    credential: server.credential,
                     urls: server.urls || server.url
                 });
             });
@@ -146,6 +146,6 @@ function safeCb(cb) {
     if (typeof cb === 'function') {
         return cb;
     } else {
-        return function () {};
+        return function () { };
     }
 }

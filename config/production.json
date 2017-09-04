@@ -36,7 +36,9 @@
     {
       "urls": "turn:numb.viagenie.ca",
       "username": "pop@ooca.co",
-      "credential": "uYxW3a9iLJtj4IsKD1VA"
+      "credential": "uYxW3a9iLJtj4IsKD1VA",
+      "secret": "turnserversharedsecret",
+      "expiry": 86400
     }
   ]
 }
