@@ -1,4 +1,4 @@
-FROM node:8.1.2
+FROM node:8.4.0
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY ["package.json", "npm-shrinkwrap.json*", "./"]

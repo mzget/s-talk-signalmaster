@@ -1,3 +1,4 @@
+//@ts-check
 var socketIO = require('socket.io'),
     uuid = require('node-uuid'),
     crypto = require('crypto');
