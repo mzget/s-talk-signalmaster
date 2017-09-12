@@ -1,0 +1,13 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "watch": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
