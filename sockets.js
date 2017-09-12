@@ -126,7 +126,6 @@ module.exports = function (server, config) {
         client.emit('turnservers', credentials);
     });
 
-
     function describeRoom(name) {
         var adapter = io.nsps['/'].adapter;
         var clients = adapter.rooms[name] || {};
@@ -147,7 +146,6 @@ module.exports = function (server, config) {
     function clientsInRoom(name) {
         return io.sockets.clients(name).length;
     }
-
 };
 
 function safeCb(cb) {

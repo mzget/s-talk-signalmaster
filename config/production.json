@@ -6,6 +6,7 @@
         "secure": true,
         "key": "config/sslcerts/privkey1.pem",
         "cert": "config/sslcerts/cert1.pem",
+        "ca": "config/sslcerts/fullchain1.pem",
         "password": null
     },
     "rooms": {

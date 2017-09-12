@@ -5,8 +5,8 @@ var yetify = require('yetify'),
     sockets = require('./sockets'),
     port = parseInt(process.env.PORT || config.server.port, 10),
     server_handler = function (req, res) {
-        res.writeHead(404);
-        res.end();
+        res.writeHead(200);
+        res.end('hello world\n S-Talk-Signalmaster');
     },
     server = null;
 
@@ -15,7 +15,7 @@ if (config.server.secure) {
     server = require('https').Server({
         key: fs.readFileSync(config.server.key),
         cert: fs.readFileSync(config.server.cert),
-        // ca: fs.readdirSync(config.server.ca),
+        ca: fs.readdirSync(config.server.ca),
         passphrase: config.server.password
     }, server_handler);
 } else {
