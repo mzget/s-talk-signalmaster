@@ -140,7 +140,9 @@ module.exports = function (server, config) {
         catch (ex) {
             console.error("describeRoom", ex);
         }
-        return result;
+        finally {
+            return result;
+        }
     }
 
     function clientsInRoom(name) {
