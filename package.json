@@ -23,6 +23,7 @@
   "license": "MIT",
   "scripts": {
     "test": "node test.js",
+    "dev": "node server.js",
     "start": "NODE_ENV=production node server.js",
     "deploy": "NODE_ENV=production pm2 start server.js --name signalmaster"
   }

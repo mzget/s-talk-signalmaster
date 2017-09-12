@@ -133,9 +133,14 @@ module.exports = function (server, config) {
         var result = {
             clients: {}
         };
-        Object.keys(clients).forEach(function (id) {
-            result.clients[id] = adapter.nsp.connected[id].resources;
-        });
+        try {
+            Object.keys(clients).forEach(function (id) {
+                result.clients[id] = adapter.nsp.connected[id].resources;
+            });
+        }
+        catch (ex) {
+            console.error("describeRoom", ex);
+        }
         return result;
     }
 
