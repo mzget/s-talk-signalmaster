@@ -7,6 +7,7 @@ module.exports = function (server, config) {
     var io = socketIO.listen(server);
 
     io.sockets.on('connection', function (client) {
+        console.log("on connection", client.id);
         client.resources = {
             screen: false,
             video: true,
@@ -49,6 +50,7 @@ module.exports = function (server, config) {
         }
 
         function join(name, cb) {
+            console.log("Join-room", name);
             // sanity check
             if (typeof name !== 'string') return;
             // check if maximum number of clients reached
